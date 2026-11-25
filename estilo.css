@@ -1,0 +1,119 @@
+:root {
+  color-scheme: dark;
+  --gold: #e8bf77;
+  --cream: #fcf0d7;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: var(--cream);
+  background: #100e0b;
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; min-width: 280px; background: radial-gradient(ellipse at 50% 34%, #49321b70, transparent 65%), #100e0b; }
+button { font: inherit; cursor: pointer; }
+button:focus-visible, [tabindex]:focus-visible { outline: 2px solid #ffda94; outline-offset: 5px; }
+main { width: min(640px, calc(100% - 34px)); margin: 0 auto; padding-bottom: calc(160px + env(safe-area-inset-bottom)); }
+.masthead { display: flex; justify-content: space-between; align-items: center; padding: 12px 0 10px; border-bottom: 1px solid #684927; }
+.brand { display: block; width: 94px; height: auto; }
+.masthead p { text-align: right; color: #c8b495; font: 700 13px/1.5 "Courier New", monospace; letter-spacing: .09em; }
+.masthead strong { display: block; color: var(--gold); font-size: 19px; }
+.experience { text-align: center; }
+.eyebrow { margin: 23px 0 10px; color: var(--gold); font-size: 12px; letter-spacing: .14em; }
+h1, h2 { font-family: Georgia, serif; font-weight: 400; }
+h1 { margin: 0; font-size: clamp(47px, 10vw, 78px); letter-spacing: -.055em; line-height: 1; }
+h1 em { color: var(--gold); }
+.intro { margin: 13px 0 23px; color: #e4d0b0; font-size: 16px; }
+.ticket {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 420px);
+  margin: 0 auto;
+  padding: 19px 20px 15px;
+  border: 1px solid #ebc27a;
+  border-radius: 12px;
+  color: #67451d;
+  background:
+    radial-gradient(circle at left 46%, #100e0b 0 9px, transparent 9.5px),
+    radial-gradient(circle at right 46%, #100e0b 0 9px, transparent 9.5px),
+    repeating-linear-gradient(118deg, transparent 0 3px, #a9987f0c 3px 4px),
+    linear-gradient(115deg, #faf9f4, #e6e4de 45%, #fffdfa 77%, #d5d4d0);
+  box-shadow: inset 0 0 0 5px #fff7, inset 0 0 0 6px #b8883a66, 0 18px 45px #0007;
+}
+.ticket::before, .ticket::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ae7d34;
+  z-index: -1;
+}
+.ticket::before { left: 12px; top: 12px; border-right: 0; border-bottom: 0; }
+.ticket::after { bottom: 12px; right: 12px; border-left: 0; border-top: 0; }
+.ticket-heading { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #bc985d; padding-bottom: 12px; margin-bottom: 14px; }
+.ticket-heading p { margin: 0; font: 400 clamp(23px, 6vw, 32px)/1 Georgia, serif; letter-spacing: -.025em; }
+.ticket-heading p span { font-size: .77em; }
+.star { color: #b78b39; font-size: 27px; }
+.scratch {
+  position: relative;
+  width: min(100%, 248px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 10px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+.scratch:active { cursor: grabbing; }
+.seal { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.seal-turner { position: absolute; inset: 0; transition: transform .35s ease, opacity .35s ease; }
+.seal-turner.turning { transform: scaleX(.04); opacity: 0; }
+.or { position: absolute; inset: 0; display: grid; place-items: center; font: italic 700 80px/1 Georgia, serif; color: #b27c22; }
+#cover { position: absolute; inset: 0; width: 100%; height: 100%; border: 1px solid #b78d4c; border-radius: inherit; transition: opacity .55s; }
+[data-revealed="true"] #cover { opacity: 0; pointer-events: none; }
+.coin {
+  position: absolute;
+  left: 82%;
+  top: 77%;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  width: 62px;
+  height: 62px;
+  border: 3px solid #eed18f;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff6 0 41%, #38230b88 42% 44%, #d7af5b 45% 55%, transparent 56%),
+    conic-gradient(from 20deg, #ecce8b, #876028, #ffe7ad, #aa7535, #e9cb84);
+  color: #79511d;
+  box-shadow: 1px 3px 0 #80551d, 3px 8px 10px #0005, inset 0 0 0 1px #875c21;
+  text-shadow: 0 1px #fff5c0;
+  transform: translate(-50%, -50%) rotate(-22deg);
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.coin span { font: 700 31px/.85 Georgia, serif; }
+.coin small { font: 700 8px/1.4 Arial, sans-serif; letter-spacing: .06em; }
+[data-revealed="true"] .coin { opacity: 0; }
+.result { margin: 16px 0 0; font-size: 18px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.demo { margin: 6px 0 0; color: #766958; font-size: 12px; }
+.response { max-width: 420px; margin: 19px auto 0; }
+.response p { font-size: 16px; line-height: 1.45; margin: 0 0 14px; color: #e4d0b0; }
+.response .possibilities { color: #f8d493; font-weight: 700; }
+.primary { min-height: 49px; padding: 10px 24px; color: #2b1909; background: linear-gradient(110deg, #ffe2a3, #d5a352); border: 1px solid #f5d18c; border-radius: 5px; font-weight: 800; }
+.primary:hover { background: #f9d796; }
+.finale { margin: 23px auto 0; padding-top: 20px; border-top: 1px solid #76542e; }
+.finale h2 { margin: 0; font-size: clamp(36px, 8vw, 52px); color: #ffe3a4; line-height: 1.05; letter-spacing: -.045em; }
+.finale > p { color: #e7d3b3; font-size: 16px; line-height: 1.55; margin: 15px 0 21px; }
+.venue { position: fixed; z-index: 10; bottom: 0; left: 0; right: 0; padding: 14px 12px calc(14px + env(safe-area-inset-bottom)); text-align: center; background: #100e0bf7; border-top: 1px solid #a77a38; box-shadow: 0 -8px 25px #100e0b88; }
+.venue p { margin: 0; font: 700 clamp(25px, 6.2vw, 37px)/1.15 Georgia, serif; color: #f3cd7e; text-shadow: 0 1px #79521b, 0 0 23px #f6b64630; }
+.venue p + p { font-size: clamp(22px, 5.6vw, 31px); margin-top: 5px; }
+.again { background: transparent; border: 1px solid #927044; border-radius: 4px; min-height: 45px; padding: 9px 20px; margin-top: 19px; color: #efd4a1; }
+.confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+@media (max-width: 360px) {
+  .ticket { padding: 18px 16px 14px; }
+  .scratch { width: 218px; }
+  .coin { width: 56px; height: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100e0b">
+  <meta name="description" content="Recuerda rascar tu entrada del Cotillón 26/27. Descubre cómo reconocer los sellos de TOP EVENTOS. Salón Benalúcar, Sanlúcar la Mayor.">
+  <title>¿Oro o plata? · Cotillón 26/27 · TOP EVENTOS</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" as="image" href="sello-oro.png">
+  <link rel="stylesheet" href="estilo.css?v=un-rasca">
+  <script src="rasca.js?v=un-rasca" defer></script>
+</head>
+<body>
+  <canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+  <main>
+    <header class="masthead">
+      <img class="brand" src="top-eventos.png" width="120" height="84" alt="TOP EVENTOS">
+      <p>COTILLÓN <strong>26 / 27</strong></p>
+    </header>
+    <section class="experience" aria-labelledby="title">
+      <p class="eyebrow">ANTES DE GUARDAR TU ENTRADA…</p>
+      <h1 id="title">¿Oro <em>o plata?</em></h1>
+      <p class="intro" id="instruction">Desliza la moneda sobre el rasca.</p>
+
+      <article class="ticket" id="ticket" data-revealed="false" data-stage="silver">
+        <div class="ticket-heading">
+          <p>COTILLÓN <span>2027</span></p>
+          <span class="star" aria-hidden="true">✦</span>
+        </div>
+        <div class="scratch" id="scratch" role="button" tabindex="0" aria-label="Rasca con la moneda. Con teclado, pulsa Enter para descubrir el sello." aria-describedby="demo" aria-expanded="false">
+          <div class="seal-turner" id="seal-turner">
+            <img class="seal" id="seal" src="sello-plata.png" width="1254" height="1254" alt="Sello plateado TOP EVENTOS, no premiado" aria-hidden="true" draggable="false">
+            <img class="seal" id="gold-seal" src="sello-oro.png" width="1254" height="1254" alt="Sello dorado TOP EVENTOS, premiado" draggable="false" hidden>
+          </div>
+          <span class="or" id="or" hidden>O…</span>
+          <canvas id="cover" aria-hidden="true"></canvas>
+          <span class="coin" id="coin" aria-hidden="true"><span>1</span><small>EURO</small></span>
+        </div>
+        <p class="result" id="result">Rasca aquí</p>
+        <p class="demo" id="demo">Prueba cómo funciona</p>
+      </article>
+
+      <div class="response" id="response" hidden>
+        <p class="possibilities">Al rascar tu entrada puedes encontrar…</p>
+        <p id="result-copy" role="status"></p>
+      </div>
+      <section class="finale" id="finale" aria-labelledby="reminder" hidden>
+        <h2 id="reminder">¡Recuerda rascar<br>tu entrada!</h2>
+        <p>Busca el sello dorado.<br><strong>Tu entrada puede tener premio.</strong></p>
+        <button class="again" id="again" type="button">Volver a rascar</button>
+      </section>
+      <noscript><p>Recuerda rascar tu entrada física. El sello dorado indica «PREMIADO» y el plateado «NO PREMIADO».</p><p>SALÓN BENALÚCAR · SANLÚCAR LA MAYOR</p></noscript>
+    </section>
+  </main>
+  <footer class="venue">
+    <p>SALÓN BENALÚCAR</p>
+    <p>SANLÚCAR LA MAYOR</p>
+  </footer>
+</body>
+</html>
