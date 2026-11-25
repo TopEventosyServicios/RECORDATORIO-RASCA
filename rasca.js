@@ -152,7 +152,7 @@
     window.scrollTo({ top: Math.max(0, scrollY + bounds.top - top), behavior: motion.matches ? "auto" : "smooth" });
     const version = sequenceVersion;
     sealsReady.then(() => {
-      if (revealed && sequenceVersion === version) scheduleTurn("gold", 3000);
+      if (revealed && sequenceVersion === version) scheduleTurn("gold", 5000);
     });
   }
 
@@ -181,7 +181,6 @@
           finale.hidden = false;
           celebrate();
         }
-        scheduleTurn(gold ? "silver" : "gold", gold ? 5500 : 3500);
       }, motion.matches ? 850 : 1100);
     }, delay);
   }
