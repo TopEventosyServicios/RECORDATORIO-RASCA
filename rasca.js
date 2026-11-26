@@ -13,9 +13,11 @@
   const response = document.getElementById("response");
   const copy = document.getElementById("result-copy");
   const finale = document.getElementById("finale");
+  const prize = document.getElementById("prize");
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   const context = canvas.getContext("2d", { willReadFrequently: true });
   let sequenceTimer = 0;
+  let prizeTimer = 0;
   let sequenceVersion = 0;
   let celebrated = false;
   const sealsReady = Promise.all([seal.decode(), goldSeal.decode()]).catch(() => {});
@@ -180,6 +182,11 @@
           celebrated = true;
           finale.hidden = false;
           celebrate();
+          prizeTimer = window.setTimeout(() => {
+            if (!revealed) return;
+            prize.hidden = false;
+            prize.scrollIntoView({ block: "start", behavior: motion.matches ? "auto" : "smooth" });
+          }, 2800);
         }
       }, motion.matches ? 850 : 1100);
     }, delay);
@@ -215,6 +222,7 @@
 
   function reset() {
     clearTimeout(sequenceTimer);
+    clearTimeout(prizeTimer);
     sequenceVersion++;
     celebrated = false;
     releasePointer();
@@ -238,6 +246,7 @@
     result.textContent = "Rasca aquí";
     response.hidden = true;
     finale.hidden = true;
+    prize.hidden = true;
     document.getElementById("instruction").textContent = "Desliza la moneda sobre el rasca.";
     moveCoin([.82, .77]);
     resize();
